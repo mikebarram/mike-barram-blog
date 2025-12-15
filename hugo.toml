@@ -1,0 +1,82 @@
+baseURL = 'https://mike.barram.dev/'
+languageCode = 'en-gb'
+title = 'Mike Barram'
+theme = 'PaperMod'
+
+# Generates "index.json" required for the Search functionality
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  defaultTheme = "auto" # Allows user system preference (Dark/Light mode)
+  
+  # UI Customizations
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  
+  # Profile Mode: This makes your homepage a "Bio" card instead of just a list of posts
+  [params.profileMode]
+    enabled = true
+    title = "Mike Barram"
+    subtitle = "Mike Barram's work as a software developer and architect"
+    imageUrl = "/static/mike-barram.jpg"
+    imageTitle = "Mike Barram"
+    
+    # Homepage Buttons (Update these URLs!)
+    [[params.profileMode.buttons]]
+      name = "My Experience"
+      url = "/about"
+    [[params.profileMode.buttons]]
+      name = "Github"
+      url = "https://github.com/mikebarram"
+
+  # Social Icons (Appears in footer and profile)
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/mikebarram"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "hhttps://uk.linkedin.com/in/mike-barram"
+
+  # Search Configuration
+  [params.fuseOpts]
+    isCaseSensitive = false
+    score = 0.5
+    minMatchCharLength = 2
+    keys = ["title", "content", "tags", "categories"]
+
+# URL Structure Configuration
+[permalinks]
+  # This ensures that even if you save a file in /content/posts/2024/my-post.md,
+  # the URL remains clean: domain.com/posts/my-post/
+  # If you prefer the year in the URL (domain.com/posts/2024/my-post/), remove this section.
+  posts = "/posts/:slug/"
+
+# Top Navigation Menu
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 10
+  
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 30
+  
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 40
