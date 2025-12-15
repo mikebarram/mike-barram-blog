@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Uom-A11y on Mike Barram</title>
+    <link>http://localhost:1313/tags/uom-a11y/</link>
+    <description>Recent content in Uom-A11y on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 10 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/uom-a11y/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A couple of articles on accessibility</title>
+      <link>http://localhost:1313/posts/a-couple-of-articles-on-accessibility/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/a-couple-of-articles-on-accessibility/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://a11ywins.tumblr.com/&#34; title=&#34;Accessibility Wins&#34;&gt;http://a11ywins.tumblr.com/&lt;/a&gt; lists user contributed sites that are good for accessibility or have made significant improvements. There’s usually a reasonable technical overview of the technologies used. It highlights the efforts that other companies/developers are making, which is useful to spur us on to do better and to help provide justifications to our business owners for why this is important.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://simplyaccessible.com/article/spangular-accessibility/&#34; title=&#34;Accessible angularjs demo application&#34;&gt;http://simplyaccessible.com/article/spangular-accessibility/&lt;/a&gt; a really helpful demo site with explainations on how to make an angularjs application accessible. The code from the demo application would be a good starting point when creating your own angularjs application.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Catching up on accessibility techniques</title>
+      <link>http://localhost:1313/posts/catching-up-on-accessibility-techniques/</link>
+      <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/catching-up-on-accessibility-techniques/</guid>
+      <description>&lt;p&gt;Concern over whether my modal dialogs are accessible led on this series of articles:&lt;/p&gt;
+&lt;p&gt;A great starting point if you don’t know why your sites should be accessible:&lt;br&gt;
+&lt;a href=&#34;http://alistapart.com/article/reframing-accessibility-for-the-web&#34;&gt;http://alistapart.com/article/reframing-accessibility-for-the-web&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/&#34;&gt;https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://accessibility.oit.ncsu.edu/training/aria/modal-window/version-2/&#34;&gt;http://accessibility.oit.ncsu.edu/training/aria/modal-window/version-2/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/&#34;&gt;http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The very dry formal stuff&lt;br&gt;
+&lt;a href=&#34;http://www.w3.org/TR/wai-aria/&#34;&gt;http://www.w3.org/TR/wai-aria/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some examples&lt;br&gt;
+&lt;a href=&#34;http://www.w3.org/WAI/PF/aria-practices/#aria_ex&#34;&gt;http://www.w3.org/WAI/PF/aria-practices/#aria_ex&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;These link to real examples e.g. &lt;a href=&#34;http://www.oaa-accessibility.org/examplep/grid1/&#34;&gt;http://www.oaa-accessibility.org/examplep/grid1/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/resources/&#34;&gt;http://www.paciellogroup.com/resources/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/&#34;&gt;http://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/12/using-aria-describedby-to-provide-helpful-form-hints/&#34;&gt;http://www.paciellogroup.com/blog/2014/12/using-aria-describedby-to-provide-helpful-form-hints/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/08/using-the-tabindex-attribute/&#34;&gt;http://www.paciellogroup.com/blog/2014/08/using-the-tabindex-attribute/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;strong&gt;Screen readers&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://webaim.org/projects/screenreadersurvey5/&#34;&gt;http://webaim.org/projects/screenreadersurvey5/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Free screen reader &lt;a href=&#34;http://www.nvaccess.org/&#34;&gt;http://www.nvaccess.org/&lt;/a&gt; (donate if you can) You can change the voice from the notifications area and Preferences &amp;gt; Synthesizer&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mike Barram</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 15 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My MSc thesis</title>
+      <link>http://localhost:1313/posts/my-msc-thesis/</link>
+      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/my-msc-thesis/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just uploaded to Github a copy of my MSc thesis on &lt;a href=&#34;https://github.com/mikebarram/MSc-Thesis&#34;&gt;Computer Vision and Analysis of the Carotid Artery&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I hadn&amp;rsquo;t looked at my thesis for a while but I was thinking that it might be a nice idea to replicate it as a modern web application with the number crunching handed off to the most appropriate cloud service. Looking at what I did back then, re-implementing the algorithms in a different language and then recreating the 3D graphics will be quite a challenge&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI mouse in a maze</title>
+      <link>http://localhost:1313/posts/ai-mouse-in-a-maze/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ai-mouse-in-a-maze/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;not-ai-mouse-in-a-maze&#34;&gt;Not AI mouse in a maze&lt;/a&gt; project was very successful at getting the virtual mouse to navigate a randomly generated maze using a fairly simple set of rules. It could solve about 99% of them. However, there were some maze designs that it got stuck on and others where it was very slow to find the correct path.&lt;/p&gt;
+&lt;p&gt;So, finally it was time to see how well my mouse could do at solving the maze using AI (the &lt;a href=&#34;https://neat-python.readthedocs.io/en/latest/&#34;&gt;NEAT algorithm&lt;/a&gt;). A brief description of the code, how it works, and a video of the mouse is on &lt;a href=&#34;https://github.com/mikebarram/AI-Mouse-In-A-Maze/&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Not AI mouse in a maze</title>
+      <link>http://localhost:1313/posts/not-ai-mouse-in-a-maze/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/not-ai-mouse-in-a-maze/</guid>
+      <description>&lt;p&gt;Building on the &lt;a href=&#34;not-ai-car&#34;&gt;Not AI Car&lt;/a&gt; project, I started out trying to get the car to drive across a maze. I changed the car to a mouse, as the lines detecting the edge looked like whiskers.&lt;/p&gt;
+&lt;p&gt;As I&amp;rsquo;d done with the track, the first thing to code was an algorithm to generate a random maze each time. The backtracking algorithm was well suited to this application and there were many implementations to choose from (see the code for links), so I just need to make a few modifications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Not AI car</title>
+      <link>http://localhost:1313/posts/not-ai-car/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/not-ai-car/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d been looking for a project to work on to learn Python and AI when I came across a video about &lt;a href=&#34;https://www.youtube.com/watch?v=wL7tSgUpy8w&#34;&gt;Neural network racing cars around a track&lt;/a&gt;. Initially, I thought creating something like that would be too hard for a first project in Python, so I started work on it.&lt;/p&gt;
+&lt;p&gt;Many of the comments on that video asked whether a trained car would do just as well on another track, so I decided to create the track dynamically with an algorithm that would produce a different track each time. Then, I added a car and calculated distances to the edge of the track and thought I should just check that it could drive by providing instructions for steering and acceleration. As I&amp;rsquo;d calculated the distances to the edge of the track, I divided those by the respective angles (positive and negative) and added them up to decide which way to steer and by how much. The distance straight ahead was ignored as it wouldn&amp;rsquo;t affect steering and would resulting in dividing by zero. The acceleration instruction was based on the distance straight ahead. As with a physical car, limits were place on the inputs (rate of change of steering and acceleration/deceleration) and the capabilities of the car (maximum steering angle and speed).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Migrating content to this site</title>
+      <link>http://localhost:1313/posts/migrating-content-to-this-site/</link>
+      <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/migrating-content-to-this-site/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d previously written blog posts in WordPress but this site uses Markdown instead. The migration process was simply a case of exporting the old posts from WordPress (there&amp;rsquo;s a button in WordPress to do this) and Google &amp;ldquo;WordPress XML export to markdown&amp;rdquo;, which resulted in me using this:
+&lt;a href=&#34;https://github.com/lonekorean/wordpress-export-to-markdown&#34;&gt;https://github.com/lonekorean/wordpress-export-to-markdown&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There were various warning about deprecated dependencies but, running the script with npx, they weren&amp;rsquo;t installed.
+The blog posts were converted to markdown in a few seconds and then there was the process of tidying it up, especially embedded images/code and the &lt;a href=&#34;https://github.com/timlrx/tailwind-nextjs-starter-blog#frontmatter&#34;&gt;FrontMatter&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Transcoding video files and preserving &#34;Media created&#34; meta data</title>
+      <link>http://localhost:1313/posts/transcoding-video-files-and-preserving-media-created-meta-data/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/transcoding-video-files-and-preserving-media-created-meta-data/</guid>
+      <description>&lt;p&gt;VLC is a handy tool for transcoding video files - in my case, mostly from .MOV to .mp4&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From the Media menu, select &amp;ldquo;Convert/Save…&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Add some files&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Convert/Save&amp;rdquo; button&lt;/li&gt;
+&lt;li&gt;Choose a conversion profile or click the spanner icon to create your own, combining your preferences in video and audio codecs&lt;/li&gt;
+&lt;li&gt;Choose a destination file (unless multiple files are being converted)&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Start&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Wait a while and hopefully all of your videos will have been transcoded&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then you find that you&amp;rsquo;ve lost the &amp;ldquo;Media created&amp;rdquo; meta data for transcoded files has been set to the date/time of the transcoding, not the original date that the video was recorded, and that&amp;rsquo;s the one that you want to sort media by.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RewriteRules in .htaccess files that run after a set date/time</title>
+      <link>http://localhost:1313/posts/rewriterules-in-.htaccess-files-that-run-after-a-set-date/time/</link>
+      <pubDate>Wed, 27 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rewriterules-in-.htaccess-files-that-run-after-a-set-date/time/</guid>
+      <description>&lt;p&gt;If you’re going to launch a website out of hours and want an old site that uses Apache to redirect to the new site, you can set a list of rewrite rules to run after a certain time. The trick is to write a condition that makes a rule run until the launch date and that rule skips the new rules. After the launch date, the rule doesn’t run, so the new rules aren’t skipped:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DataTables – automatic recognition of which table columns contain date/time information</title>
+      <link>http://localhost:1313/posts/datatables-automatic-recognition-of-which-table-columns-contain-date/time-information/</link>
+      <pubDate>Tue, 24 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/datatables-automatic-recognition-of-which-table-columns-contain-date/time-information/</guid>
+      <description>&lt;p&gt;I’ve used the JavaScript &lt;a href=&#34;https://datatables.net/&#34;&gt;DataTables&lt;/a&gt; plug-in for jQuery a lot. It’s great for easily adding sorting to tables and lots more. It works nicely with Bootstrap too. The clunkiest thing I’ve found is trying to sort columns that contain date / time information. In the past, I used the datetables-date-sort.js plugin, which allows you to specify for each column what the data type is e.g.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-html:&#34; data-lang=&#34;html:&#34;&gt;&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;
+  $(document).ready(function () {
+    $(&amp;#34;#myTable&amp;#34;).dataTable({
+      &amp;#34;aLengthMenu&amp;#34;: \[\[10, 25, 50, -1\], \[10, 25, 50, &amp;#34;All&amp;#34;\]\],
+      &amp;#34;iDisplayLength&amp;#34;: -1,
+      &amp;#34;aoColumnDefs&amp;#34;: \[
+        { &amp;#34;bSortable&amp;#34;: false, &amp;#34;aTargets&amp;#34;: \[0\] },
+        { &amp;#34;asSorting&amp;#34;: \[&amp;#34;asc&amp;#34;, &amp;#34;desc&amp;#34;\], &amp;#34;aTargets&amp;#34;: \[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\] },
+        { &amp;#34;sType&amp;#34;: &amp;#34;uk-date-time&amp;#34;, &amp;#34;aTargets&amp;#34;: \[8,10\] }
+      \]
+    });
+  });
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That’s nice and flexible but you have to specify it for each table and, worse still, you have to (remember to) change it each time you add/remove/reorder columns.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A couple of articles on accessibility</title>
+      <link>http://localhost:1313/posts/a-couple-of-articles-on-accessibility/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/a-couple-of-articles-on-accessibility/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://a11ywins.tumblr.com/&#34; title=&#34;Accessibility Wins&#34;&gt;http://a11ywins.tumblr.com/&lt;/a&gt; lists user contributed sites that are good for accessibility or have made significant improvements. There’s usually a reasonable technical overview of the technologies used. It highlights the efforts that other companies/developers are making, which is useful to spur us on to do better and to help provide justifications to our business owners for why this is important.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://simplyaccessible.com/article/spangular-accessibility/&#34; title=&#34;Accessible angularjs demo application&#34;&gt;http://simplyaccessible.com/article/spangular-accessibility/&lt;/a&gt; a really helpful demo site with explainations on how to make an angularjs application accessible. The code from the demo application would be a good starting point when creating your own angularjs application.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Avoiding monolithic applications</title>
+      <link>http://localhost:1313/posts/avoiding-monolithic-applications/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/avoiding-monolithic-applications/</guid>
+      <description>&lt;p&gt;I spend a lot (perhaps too much?) time worrying about how applications can become too big and extend beyond their original scope. When asked to create a small application that is either stand-alone or only slightly linked to other systems, it’s too tempting to just add it as an exatra section of an existing application, rather copy/re-create the infrastructure needed for it to be in its own application.&lt;/p&gt;
+&lt;p&gt;Visual Studio now provides a lot of the infrastructure, so with a few button clicks you can have an ASP.Net MVC application that’s all plumbed together but often the first thing you do is get rid of the that auto-generated stuff and it doesn’t include all of your own standard customisations. There are a few ways to implement those standard customisations:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JWT and CORS for cross-site API authentication</title>
+      <link>http://localhost:1313/posts/jwt-and-cors-for-cross-site-api-authentication/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/jwt-and-cors-for-cross-site-api-authentication/</guid>
+      <description>&lt;p&gt;In my previous post on &lt;a href=&#34;https://mikebarram.wordpress.com/2015/04/10/avoiding-monolithic-applications/&#34;&gt;avoiding monolithic applications&lt;/a&gt;, I mentioned that JSON Web Tokens and CORS could be used to access protected web apis on other sites. Here’s the why and how.&lt;/p&gt;
+&lt;h2 id=&#34;the-requirement-foraccessing-protected-web-apis-on-other-sites&#34;&gt;The requirement for accessing protected web apis on other sites&lt;/h2&gt;
+&lt;p&gt;Ideally (my ideal), each application that is developed would be relatively compact and include only the functionality that is unique to that application. Functionality from other applications would be provided by APIs in those applications and generic functionality (e.g. a staff lookup) would be provided by an application (or multiple) that all other applications can access (almost like  a CDN for functionality).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTTP Referer / Referrer and HTTPS</title>
+      <link>http://localhost:1313/posts/http-referer-/-referrer-and-https/</link>
+      <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/http-referer-/-referrer-and-https/</guid>
+      <description>&lt;p&gt;The rule for whether the HTTP referrer (incorrectly spelt in the original spec, so forever incorrectly spelt in headers) is sent along with a request has always been a bit odd. If the referring site uses https, the referrer isn’t sent, unless the site linked too also uses https. It isn’t sent because the originating URL may contain sensitive information but the browser happily sends the sensitive URL to any other site if it uses https.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Updated error handling</title>
+      <link>http://localhost:1313/posts/updated-error-handling/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/updated-error-handling/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/blog/2014/managing-errors-in-mvc/&#34;&gt;Managing Errors in MVC&lt;/a&gt; I got close to having record level error handling working as I wanted but I had to create a view for each error when usually the error is a single line of text that could be stored in a config file.&lt;/p&gt;
+&lt;p&gt;Based on my original code and http://weblogs.asp.net/gunnarpeipman/asp-net-mvc-3-creating-httpstatuscoderesult-with-view-based-body&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Helpers\ExceptionHelper.cs&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Linq.Expressions;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Net;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web.Mvc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web.Routing;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Collections;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Collections.Generic;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; MyProject
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ExceptionHelper&lt;/span&gt; : ViewResult
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; ExceptionName &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; HttpStatusCode? &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool?&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ExceptionHelper(ExceptionName exceptionName, HttpStatusCode? statusCode = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;bool?&lt;/span&gt; logException = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName = exceptionName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode = statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException = logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; ExecuteResult(ControllerContext context)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            HttpStatusCode returnStatusCode = HttpStatusCode.BadRequest;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; returnLogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ExceptionDescription = &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;.Empty;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; sViewName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exceptions/\_GenericException&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; httpContext = context.HttpContext;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; response = httpContext.Response;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// get the defaults for this exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ExceptionActions theseExceptionActions;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (ExceptionDefaults.TryGetValue(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName, &lt;span style=&#34;color:#66d9ef&#34;&gt;out&lt;/span&gt; theseExceptionActions))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (theseExceptionActions.UseCustomView)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    sViewName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exceptions/&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName.ToString();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ExceptionDescription = theseExceptionActions.ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; == &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnStatusCode = theseExceptionActions.StatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnStatusCode = (HttpStatusCode)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; == &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnLogException = theseExceptionActions.LogException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnLogException = (&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            response.StatusCode = (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;)returnStatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            response.StatusDescription = ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ViewBag.ExceptionDescription = ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ViewName = sViewName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (returnLogException)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;// log the exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Elmah.ErrorSignal.FromCurrentContext().Raise(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Exception(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName.ToString()));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;base&lt;/span&gt;.ExecuteResult(context);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;enum&lt;/span&gt; ExceptionName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            DataNotValid,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            NoPermissionToManageThisPerson,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            NoPermissionToManageThisProject,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            RecordNotFound,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            RecordNotSpecified
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// &amp;lt;summary&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// Most exceptions will have UseCustomView=false, so the ExceptionDescription will be used for the error message that is displayed in the \_GenericException view&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// If a custom view is required, it will have the name of the exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// &amp;lt;/summary&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ExceptionActions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; UseCustomView;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; HttpStatusCode StatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; LogException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; Dictionary&amp;lt;ExceptionName, ExceptionActions&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&amp;gt; ExceptionDefaults = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Dictionary&amp;lt;ExceptionName, ExceptionActions&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&amp;gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.DataNotValid, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.BadRequest, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Data provided was not valid&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.NoPermissionToManageThisPerson, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.Forbidden, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You don&amp;#39;t have permission to manage this person&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.NoPermissionToManageThisProject, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.Forbidden, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You don&amp;#39;t have permission to manage this project&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.RecordNotFound, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.NotFound, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Record was not found&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.RecordNotSpecified, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.BadRequest, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Record not specified - one or more identifiers were missing&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Views\Shared\Exceptions\_GenericException.cshtml&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Catching up on accessibility techniques</title>
+      <link>http://localhost:1313/posts/catching-up-on-accessibility-techniques/</link>
+      <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/catching-up-on-accessibility-techniques/</guid>
+      <description>&lt;p&gt;Concern over whether my modal dialogs are accessible led on this series of articles:&lt;/p&gt;
+&lt;p&gt;A great starting point if you don’t know why your sites should be accessible:&lt;br&gt;
+&lt;a href=&#34;http://alistapart.com/article/reframing-accessibility-for-the-web&#34;&gt;http://alistapart.com/article/reframing-accessibility-for-the-web&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/&#34;&gt;https://www.marcozehe.de/2015/02/05/advanced-aria-tip-2-accessible-modal-dialogs/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://accessibility.oit.ncsu.edu/training/aria/modal-window/version-2/&#34;&gt;http://accessibility.oit.ncsu.edu/training/aria/modal-window/version-2/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/&#34;&gt;http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The very dry formal stuff&lt;br&gt;
+&lt;a href=&#34;http://www.w3.org/TR/wai-aria/&#34;&gt;http://www.w3.org/TR/wai-aria/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some examples&lt;br&gt;
+&lt;a href=&#34;http://www.w3.org/WAI/PF/aria-practices/#aria_ex&#34;&gt;http://www.w3.org/WAI/PF/aria-practices/#aria_ex&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;These link to real examples e.g. &lt;a href=&#34;http://www.oaa-accessibility.org/examplep/grid1/&#34;&gt;http://www.oaa-accessibility.org/examplep/grid1/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/resources/&#34;&gt;http://www.paciellogroup.com/resources/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/&#34;&gt;http://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/12/using-aria-describedby-to-provide-helpful-form-hints/&#34;&gt;http://www.paciellogroup.com/blog/2014/12/using-aria-describedby-to-provide-helpful-form-hints/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.paciellogroup.com/blog/2014/08/using-the-tabindex-attribute/&#34;&gt;http://www.paciellogroup.com/blog/2014/08/using-the-tabindex-attribute/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;strong&gt;Screen readers&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://webaim.org/projects/screenreadersurvey5/&#34;&gt;http://webaim.org/projects/screenreadersurvey5/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Free screen reader &lt;a href=&#34;http://www.nvaccess.org/&#34;&gt;http://www.nvaccess.org/&lt;/a&gt; (donate if you can) You can change the voice from the notifications area and Preferences &amp;gt; Synthesizer&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting a WebApi2 controller to return HttpStatusCode.Forbidden</title>
+      <link>http://localhost:1313/posts/getting-a-webapi2-controller-to-return-httpstatuscode.forbidden/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/getting-a-webapi2-controller-to-return-httpstatuscode.forbidden/</guid>
+      <description>&lt;p&gt;If your WebApi controller is checking that the user has permission to view a particular record and it turns out that they don’t then you will want to return a status of Forbidden, rather than Unauthorized as discussed here:
+&lt;a href=&#34;http://stackoverflow.com/questions/238437/why-does-authorizeattribute-redirect-to-the-login-page-for-authentication-and-au/5844884#5844884&#34;&gt;http://stackoverflow.com/questions/238437/why-does-authorizeattribute-redirect-to-the-login-page-for-authentication-and-au/5844884#5844884&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(You might also want to override the AuthorizeAttribute class as described there)&lt;/p&gt;
+&lt;p&gt;WebApi2 controllers now return IHttpActionResult rather than HttpResponseMessage (see http://stackoverflow.com/questions/21758615/why-should-i-use-ihttpactionresult-instead-of-httpresponsemessage). It’s easy to return a result from the System.Web.Http.Results Namespace e.g. return Unauthorized();&lt;br&gt;
+But the namespace doesn’t contain Forbidden, so instead use:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Managing errors in MVC</title>
+      <link>http://localhost:1313/posts/managing-errors-in-mvc/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/managing-errors-in-mvc/</guid>
+      <description>&lt;h2 id=&#34;error-logging&#34;&gt;Error logging&lt;/h2&gt;
+&lt;p&gt;Elmah seems to be the most popular tool for error logging but the Elmah website doesn’t have much up to date information on how to get started. To get Elmah installed, secured and logging to somewhere more permanent than keeping the log in-memory, follow this guide: http://www.erikojebo.se/Code/Details/607&lt;/p&gt;
+&lt;h2 id=&#34;error-handling&#34;&gt;Error handling&lt;/h2&gt;
+&lt;p&gt;Elmah just logs error, it doesn’t help the user. So you also need to handle the errors, which this article covers nicely:&lt;br&gt;
+&lt;a href=&#34;https://www.simple-talk.com/dotnet/asp.net/handling-errors-effectively-in-asp.net-mvc/&#34;&gt;https://www.simple-talk.com/dotnet/asp.net/handling-errors-effectively-in-asp.net-mvc/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ASP.Net MVC and URLs ending in a decimal or float</title>
+      <link>http://localhost:1313/posts/asp.net-mvc-and-urls-ending-in-a-decimal-or-float/</link>
+      <pubDate>Fri, 14 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/asp.net-mvc-and-urls-ending-in-a-decimal-or-float/</guid>
+      <description>&lt;p&gt;In your MVC site, you might want this URL to purchase 2.5 kilos of cheese for you&lt;br&gt;
+&lt;a href=&#34;https://www.mysite.com/cheese/purchase/2.5&#34;&gt;https://www.mysite.com/cheese/purchase/2.5&lt;/a&gt;&lt;br&gt;
+Unfortunately it won’t be recognised as a route to the purchase method within the cheese controller. The good news is that this will work:&lt;br&gt;
+&lt;a href=&#34;https://www.mysite.com/cheese/purchase/2.5/&#34;&gt;https://www.mysite.com/cheese/purchase/2.5/&lt;/a&gt; Note the extra slash at the end&lt;/p&gt;
+&lt;p&gt;This is an explanation why:&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/21387974/why-is-my-web-api-method-with-double-args-not-getting-called&#34;&gt;http://stackoverflow.com/questions/21387974/why-is-my-web-api-method-with-double-args-not-getting-called&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It’s fairly unusual to have a valid reason for a URL like this. If you want to pass a parameter that’s a float, it’s more likely that you would want to post the data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What could go wrong with a simple jQuery value selector?</title>
+      <link>http://localhost:1313/posts/what-could-go-wrong-with-a-simple-jquery-value-selector/</link>
+      <pubDate>Fri, 07 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/what-could-go-wrong-with-a-simple-jquery-value-selector/</guid>
+      <description>&lt;p&gt;In this case the value selector is used like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-js:&#34; data-lang=&#34;js:&#34;&gt;$(“.pPlacement select option\[value=&amp;#39;” + PlacementId + “‘\]”).attr(‘selected’, true);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When PlacementId changes from a number to text and that text then contains an apostrophe, then it breaks!&lt;/p&gt;
+&lt;p&gt;To explain the code above, thee’s a dropdown list of placements and from somewhere we have the value of the one that we want to have as the selected option. The selector picks the option with the value equal to PlacementId and selects it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding a stylesheet to an iframe</title>
+      <link>http://localhost:1313/posts/adding-a-stylesheet-to-an-iframe/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/adding-a-stylesheet-to-an-iframe/</guid>
+      <description>&lt;p&gt;If your page contains an iframe and you need to dynamically add a stylesheet, you can do it like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$head&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“#&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;myIframe&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;contents&lt;/span&gt;().&lt;span style=&#34;color:#a6e22e&#34;&gt;find&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;);  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;$head&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;append&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;link&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;, { &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;stylesheet&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; window.&lt;span style=&#34;color:#a6e22e&#34;&gt;location&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;protocol&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//” + window.location.host + “/mystyles/mystylesheet.css”, type: “text/css” }));
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Even if the domain for the stylesheet is the same as the parent page and the iframe, you still need to include the host address of the stylesheet (the protocol and host bit) or IE will ignore it.&lt;/p&gt;
+&lt;p&gt;from&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/6960406/add-css-to-iframe&#34;&gt;http://stackoverflow.com/questions/6960406/add-css-to-iframe&lt;/a&gt;&lt;br&gt;
+and
+&lt;a href=&#34;http://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/&#34;&gt;http://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>EntityFramework Reverse POCO Generator and Views</title>
+      <link>http://localhost:1313/posts/entityframework-reverse-poco-generator-and-views/</link>
+      <pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/entityframework-reverse-poco-generator-and-views/</guid>
+      <description>&lt;p&gt;EntityFramework’s own tool to generate a model from a database is slow and buggy. It’s particularly a problem if you update your database (change table names, field names etc.).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://visualstudiogallery.msdn.microsoft.com/ee4fcff9-0c4c-4179-afd9-7a2fb90f5838&#34;&gt;EntityFramework Reverse POCO Generator&lt;/a&gt; is a great, lightweight replacement – it’s fast, configurable and just works. Also, the entities created can be the same as those created by the built in tool, so it is possible to switch to it part way through developing a project.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Casting one list to another with Omu.ValueInjecter</title>
+      <link>http://localhost:1313/posts/casting-one-list-to-another-with-omu.valueinjecter/</link>
+      <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/casting-one-list-to-another-with-omu.valueinjecter/</guid>
+      <description>&lt;p&gt;Omu.ValueInjecter is great for quickly casting one entity to another, especially when the property names match up, as there’s no configuration to do.&lt;/p&gt;
+&lt;p&gt;This is really handy if you have a view model that’s just a cut down version of your model and you want to get the data from the model into the view model.&lt;/p&gt;
+&lt;p&gt;If you’ve got a list of model entities that you want to cast to a list of view model entitites, you can do so without looping through them:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Steps in creating a new MVC application</title>
+      <link>http://localhost:1313/posts/steps-in-creating-a-new-mvc-application/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/steps-in-creating-a-new-mvc-application/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create the database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create the project/solution in Visual Studio&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;don’t give the project the same name (in the same case) as one of the tables or the compiler will become confused between types and namespaces&lt;/li&gt;
+&lt;li&gt;choose MVC and optionally Web API and unit tests&lt;/li&gt;
+&lt;li&gt;leave authentication as Individual User Accounts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create an application in IIS that points to the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change the Web properties for the project to use Local IIS&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Changing the templates used to generate MVC views</title>
+      <link>http://localhost:1313/posts/changing-the-templates-used-to-generate-mvc-views/</link>
+      <pubDate>Fri, 21 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/changing-the-templates-used-to-generate-mvc-views/</guid>
+      <description>&lt;p&gt;If you use Visual Studio to generate MVC views, it will use T4 templates. This is how to edit those templates.&lt;/p&gt;
+&lt;p&gt;Go to:&lt;/p&gt;
+&lt;p&gt;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\Web\Mvc\Scaffolding\Templates\MvcView&lt;/p&gt;
+&lt;p&gt;Make a backup copy of the folder (don’t put the backup inside the folder or VS will complain that it has multiple templates to choose from)&lt;/p&gt;
+&lt;p&gt;Then,  open all of the files (or at least all of the *.cs.t4) files) in a text editor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Typical data annotations to use in an MVC data model</title>
+      <link>http://localhost:1313/posts/typical-data-annotations-to-use-in-an-mvc-data-model/</link>
+      <pubDate>Thu, 20 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/typical-data-annotations-to-use-in-an-mvc-data-model/</guid>
+      <description>&lt;p&gt;In ASP.Net MVC, the data model can use data annotations to describe how a property should be displayed or validated.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[DisplayName(&amp;quot;Label used for field goes here&amp;quot;)]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If a string field in the database (e.g. varchar()) doesn’t allow nulls you should either have&lt;br&gt;
+&lt;code&gt;[Required(ErrorMessage = &amp;quot;Required&amp;quot;)]&lt;/code&gt; to provide a message when a field hasn’t been entered&lt;br&gt;
+or&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[DisplayFormat(ConvertEmptyStringToNull = false)]&lt;/code&gt; if empty strings are allowed (though you might want to allow nulls if that’s the case)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding WYSIYYG editors to text fields in MVC</title>
+      <link>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</link>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</guid>
+      <description>&lt;p&gt;In a &lt;a href=&#34;https://mike.barram.dev/blog/2014/multiline-text-editor-in-mvc&#34;&gt;previous post&lt;/a&gt; I showed how you could set attributes on properties in an MVC model so that a text field would be edited with a multi-line HTML text box, instead of a single line input field.&lt;/p&gt;
+&lt;p&gt;What if the you text you’re editing is HTML and you want to use an HTML editor? In the edit razor view, you could set some HTML attributes (e.g. CSS class) on the @Html.EditorFor() but you would have to do that on every view where you edit the field, and on every field that you want to use an HTML editor for. So this shows how to add an attribute to a property so that, wherever the property is edited, the HTML editor will be used.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mobile emulation in Chrome</title>
+      <link>http://localhost:1313/posts/mobile-emulation-in-chrome/</link>
+      <pubDate>Sun, 16 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mobile-emulation-in-chrome/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://developers.google.com/chrome-developer-tools/docs/mobile-emulation&#34;&gt;https://developers.google.com/chrome-developer-tools/docs/mobile-emulation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is great for testing responsive designs. It allows for device pixel ratios, so you’ll get a much better idea of what your site will look like than just by resizing your browser.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Requiring authentication for a whole ASP.Net MVC site</title>
+      <link>http://localhost:1313/posts/requiring-authentication-for-a-whole-asp.net-mvc-site/</link>
+      <pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/requiring-authentication-for-a-whole-asp.net-mvc-site/</guid>
+      <description>&lt;p&gt;This is easy from ASP.NET MVC 4 onwards:&lt;br&gt;
+&lt;a href=&#34;http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx&#34;&gt;http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can register a filter that will require users to be authenticated to access all controllers&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; RegisterGlobalFilters(GlobalFilterCollection filters)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    filters.Add(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; HandleErrorAttribute());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    filters.Add(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; System.Web.Mvc.AuthorizeAttribute());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;but then they won’t be able to access to the Login controller, so you simply add the [AllowAnonymous] attribute to that controller:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[AllowAnonymous]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ActionResult Login(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; returnUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[HttpPost]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[AllowAnonymous]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[ValidateAntiForgeryToken]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ActionResult Login(LoginModel model, &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; returnUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Multiline Text Editor in MVC</title>
+      <link>http://localhost:1313/posts/multiline-text-editor-in-mvc/</link>
+      <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/multiline-text-editor-in-mvc/</guid>
+      <description>&lt;p&gt;In ASP.Net MVC, it’s so easy to create an entity data model and generate controllers and views for each entity. You can create lots of pages for editing your data just by clicking buttons…&lt;/p&gt;
+&lt;p&gt;A downside is that the generated code doesn’t know the the difference between a small string and a large one, so you get the same small text input box to edit all strings.&lt;/p&gt;
+&lt;p&gt;In your razor view, that’s created by&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Intercepting FormView inserts and updates</title>
+      <link>http://localhost:1313/posts/intercepting-formview-inserts-and-updates/</link>
+      <pubDate>Mon, 27 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/intercepting-formview-inserts-and-updates/</guid>
+      <description>&lt;p&gt;Our FormViews in ASP.Net web forms tend to contain user controls in the templates.&lt;/p&gt;
+&lt;p&gt;If you want to want to intercept the insert or update events, you end up with something like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; FormView1_ItemUpdating(&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; sender, FormViewUpdateEventArgs e)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But how do you access the values in the user control? We’ve often had code like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TextBox tReviewerName = (TextBox)FormView1.Row.FindControl(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dataReviewerName&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;which is OK to get the value from that field if you want to code your own updates/inserts but you can’t (I think) write back to that field in time for the update to pass that new value back to the database.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AutoMapper</title>
+      <link>http://localhost:1313/posts/automapper/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/automapper/</guid>
+      <description>&lt;p&gt;From &lt;a href=&#34;http://stackoverflow.com/tags/automapper/info&#34;&gt;http://stackoverflow.com/tags/automapper/info&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AutoMapper uses a fluent configuration API to define an object-object mapping strategy. AutoMapper uses a convention-based matching algorithm to match up source to destination values. Currently, AutoMapper is geared towards model projection scenarios to flatten complex object models to DTOs and other simple objects, whose design is better suited for serialization, communication, messaging, or simply an anti-corruption layer between the domain and application layer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Slightly slow but useful video to show how AutoMapper is useful&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NuGets of gold</title>
+      <link>http://localhost:1313/posts/nugets-of-gold/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/nugets-of-gold/</guid>
+      <description>&lt;p&gt;“NuGet is a Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects that use the .NET Framework.” http://docs.nuget.org/&lt;/p&gt;
+&lt;p&gt;To be as agile as possible, the projects developed by the team tend to be coded as separate .Net projects, rather than within one over-arching framework. This makes it easy, when starting a project, to copy the elements from the most similar existing project and just get on with it, without worrying about breaking existing applications. The downside to this is that bugs that are identified and fixed in one project may also need to be fixed in many other projects. In the same way, design changes (updates to templates) need to be rolled out across many sites. Updates to libraries such as jQuery or .Net need to be rolled out across many sites too but there can be an advantage in that, as testing can be done in smaller chunks before the new version can go live – plus the rule of, if it ain’t broke, don’t fix it, can be applied to the older projects that don’t have any other reason to be updated.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Frameworks for Rich Internet Applications</title>
+      <link>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</link>
+      <pubDate>Mon, 13 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</guid>
+      <description>&lt;p&gt;Reading to do relating to frameworks for Rich Internet Applications…&lt;/p&gt;
+&lt;p&gt;Visual Studio 2013 bundles Knockout.js, which looks fairly straightforward (I hope)&lt;/p&gt;
+&lt;p&gt;Postal could be a better way of handling the events https://github.com/postaljs/postal.js&lt;/p&gt;
+&lt;p&gt;Need to make sure our applications are accessible:  http://stackoverflow.com/questions/7370056/accessibility-and-all-these-javascript-frameworks&lt;/p&gt;
+&lt;p&gt;With Knockout, you can pass the server side model to the client like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-HTML&#34; data-lang=&#34;HTML&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ko&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;applyBindings&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Html&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ToJSON&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Comparison of frameworks&lt;br&gt;
+&lt;a href=&#34;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&#34;&gt;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yet more from the developers at Twitter &lt;a href=&#34;http://twitter.github.io/hogan.js/&#34;&gt;http://twitter.github.io/hogan.js/&lt;/a&gt;. This is  a compiler for &lt;a href=&#34;http://mustache.github.io/&#34;&gt;{{mustache}}&lt;/a&gt;, which is a templating language that can convert JSON to HTML in a similar way to Razor converting entities to HTML in ASP.Net. Useful if you want to say generate whole data grids on the client. If your server is getting JSON from elsewhere and you want to template it into HTML, you can use mustache templates on the server (rather than client) using &lt;a href=&#34;https://github.com/jdiamond/Nustache&#34;&gt;https://github.com/jdiamond/Nustache&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Entity Framework – Model First</title>
+      <link>http://localhost:1313/posts/entity-framework-model-first/</link>
+      <pubDate>Thu, 09 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/entity-framework-model-first/</guid>
+      <description>&lt;p&gt;There are 3 ways to link entity framework to a database:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Database first&lt;/strong&gt;. Point Visual Studio at your database and it will create an entity model for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code first&lt;/strong&gt;. Write your classes in Visual Studio and it can create your database for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model first&lt;/strong&gt;. Use the Entity Data Model Tool in Visual Studio to model your entities. Visual Studio will can them create your database and classes for you.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I’ve just tried &lt;strong&gt;Model First&lt;/strong&gt; and not achieved what I wanted.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTML emails</title>
+      <link>http://localhost:1313/posts/html-emails/</link>
+      <pubDate>Wed, 04 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/html-emails/</guid>
+      <description>&lt;p&gt;If you need to dynamically create HTML emails (say for a new announcements system), the first thing to do is question whether you really need to or if any other alternative will do. This is especially the case if you’re going to give users a WYSIWYG editor to create marked up content.&lt;/p&gt;
+&lt;p&gt;Some useful resources:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/say-hello-to-the-html-email-boilerplate/&#34;&gt;http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/say-hello-to-the-html-email-boilerplate/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://24ways.org/2009/rock-solid-html-emails/&#34;&gt;http://24ways.org/2009/rock-solid-html-emails/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://htmlemailboilerplate.com/&#34;&gt;http://htmlemailboilerplate.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://litmus.com/blog/16-tips-troubleshooting-html-email&#34;&gt;https://litmus.com/blog/16-tips-troubleshooting-html-email&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://templates.campaignmonitor.com/build/&#34;&gt;https://templates.campaignmonitor.com/build/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.campaignmonitor.com/css/&#34;&gt;http://www.campaignmonitor.com/css/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://premailer.dialect.ca/&#34;&gt;http://premailer.dialect.ca/&lt;/a&gt; – converts CSS to inline styles&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://litmus.com/email-testing&#34;&gt;https://litmus.com/email-testing&lt;/a&gt; – get screenshots of your email in different clients&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert URLs to hyperlinks in Excel using VBA</title>
+      <link>http://localhost:1313/posts/convert-urls-to-hyperlinks-in-excel-using-vba/</link>
+      <pubDate>Fri, 21 Sep 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-urls-to-hyperlinks-in-excel-using-vba/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-vbs&#34; data-lang=&#34;vbs&#34;&gt;Public Sub Convert_To_Hyperlinks()
+    Dim Cell As Range
+    For Each Cell In Intersect(Selection, ActiveSheet.UsedRange)
+        If Cell &amp;lt;&amp;gt; &amp;#34;&amp;#34; Then
+            ActiveSheet.Hyperlinks.Add Cell, Cell.Value
+        End If
+    Next
+End Sub
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Linked servers in SQL Server</title>
+      <link>http://localhost:1313/posts/linked-servers-in-sql-server/</link>
+      <pubDate>Tue, 29 May 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/linked-servers-in-sql-server/</guid>
+      <description>&lt;p&gt;Querying across databases using linked servers should be easy:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/4091960/sql-server-linked-server-example-query&#34;&gt;http://stackoverflow.com/questions/4091960/sql-server-linked-server-example-query&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;but linking SQL Server  2008 (64 bit) to SQL Server 2000 (SP3 I think) results in an error:&lt;/p&gt;
+&lt;p&gt;Cannot obtain the schema rowset “DBSCHEMA_TABLES_INFO” for OLE DB provider “SQLNCLI10” for linked server…&lt;/p&gt;
+&lt;p&gt;To get around this the old server needs a stored procedure as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;create&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;procedure&lt;/span&gt; dbo.sp_tables_info_rowset_64  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;table_name&lt;/span&gt; sysname,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;table_schema     sysname &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;table_type nvarchar(&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;declare&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Result&lt;/span&gt; int &lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Result&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;exec&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Result&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sp_tables_info_rowset &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;table_name&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;table_schema, &lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;table_type  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;go&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;as described here:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Status code 301 “moved permanently” in ASP.Net</title>
+      <link>http://localhost:1313/posts/status-code-301-moved-permanently-in-asp.net/</link>
+      <pubDate>Wed, 21 Mar 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/status-code-301-moved-permanently-in-asp.net/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Response.StatusCode = &lt;span style=&#34;color:#ae81ff&#34;&gt;301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Response.Redirect(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http:////www.NewLocation.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;doesn&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;t result &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; a status code of &lt;span style=&#34;color:#ae81ff&#34;&gt;301&lt;/span&gt;, so &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; it &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt; way:  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;```&lt;/span&gt;C&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Response.Status = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;301 Moved Permanently&amp;#34;&lt;/span&gt;;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Response.AddHeader(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Location&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http:////www.NewLocation.com&amp;#34;&lt;/span&gt;);  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Response.End();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;thanks to:&lt;br&gt;
+&lt;a href=&#34;http://www.vikramlakhotia.com/Search&#34;&gt;http://www.vikramlakhotia.com/Search&lt;/a&gt;_Engine_Web_World_and_301_redirect.aspx&lt;/p&gt;
+&lt;p&gt;In ASP.Net 4 you can use Response.RedirectPermanent()&lt;/p&gt;
+&lt;p&gt;In ASP the code would be:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-ASP&#34; data-lang=&#34;ASP&#34;&gt;&amp;lt;%@ Language=VBScript %&amp;gt;  
+&amp;lt;%  
+Response.Clear  
+Response.Status=”301 Moved Permanently”  
+Response.AddHeader “Location”,”http://www.address\_to\_redirect\_to/”  
+%&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>The weirdest IE6 CSS bug – The multiple class bug</title>
+      <link>http://localhost:1313/posts/the-weirdest-ie6-css-bug-the-multiple-class-bug/</link>
+      <pubDate>Tue, 13 Mar 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-weirdest-ie6-css-bug-the-multiple-class-bug/</guid>
+      <description>&lt;p&gt;As described here:&lt;br&gt;
+&lt;a href=&#34;http://paulirish.com/2008/the-two-css-selector-bugs-in-ie6/&#34;&gt;http://paulirish.com/2008/the-two-css-selector-bugs-in-ie6/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;if you write&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#tooltip.&lt;span style=&#34;color:#a6e22e&#34;&gt;red&lt;/span&gt; { &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;white&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;red&lt;/span&gt;; }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#tooltip.&lt;span style=&#34;color:#a6e22e&#34;&gt;yellow&lt;/span&gt; { &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;red&lt;/span&gt;; }  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;the second rule will be ignored&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>naming conventions for custom stored procedures to be used in netTiers</title>
+      <link>http://localhost:1313/posts/naming-conventions-for-custom-stored-procedures-to-be-used-in-nettiers/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/naming-conventions-for-custom-stored-procedures-to-be-used-in-nettiers/</guid>
+      <description>&lt;p&gt;Quoting from &lt;a href=&#34;http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2008&#34;&gt;http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2008&lt;/a&gt;_03_01_archive.html&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“If you create your own procs, prefix those procs to something that you won’t confuse with any other library’s procs, such as ‘cust’ for custom. Of cource, IncludeCustoms is set to true and CustomProcedureStartsWith should be set to ‘cust_{0}_’ so that a table name of Profile should have a custom proc of cust_Profile_SelectAll.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;if you set CustomProcedureStartsWith to just ‘cust_’ as we have done in the past, a method is created for each stored procedure for each table, whereas using ‘cust_{0}_’ only creates one method for each stored procedure – that method is linked to the table its name is based on. Far more sensible.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Calling LoadLibraryEx on ISAPI filter “C:WindowsMicrosoft.NETFrameworkv4.0.30319spnet_filter.dll” failed</title>
+      <link>http://localhost:1313/posts/calling-loadlibraryex-on-isapi-filter-cwindowsmicrosoft.netframeworkv4.0.30319spnet_filter.dll-failed/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/calling-loadlibraryex-on-isapi-filter-cwindowsmicrosoft.netframeworkv4.0.30319spnet_filter.dll-failed/</guid>
+      <description>&lt;p&gt;If your website produces this error, Rick Strahl has the answer:&lt;br&gt;
+&lt;a href=&#34;http://www.west-wind.com/weblog/posts/2011/Apr/04/Error-on-64-Bit-Install-of-IIS-LoadLibraryEx-failed-on-aspnetfilterdll&#34;&gt;http://www.west-wind.com/weblog/posts/2011/Apr/04/Error-on-64-Bit-Install-of-IIS-LoadLibraryEx-failed-on-aspnetfilterdll&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IIS Permissions and the IIS_IUSR role</title>
+      <link>http://localhost:1313/posts/iis-permissions-and-the-iis_iusr-role/</link>
+      <pubDate>Tue, 24 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/iis-permissions-and-the-iis_iusr-role/</guid>
+      <description>&lt;p&gt;some web applications need access to the “temporary asp.net files” folder. The IIS_IUSR role already has read/write access to it but sometimes (i.e. the ePortfolio system) it needs to create a folder and can’t do that, even when the AppPoolIdentity account is a member of the IIS_IUSR role. In that case I just created the folder and it was fine…&lt;/p&gt;
+&lt;p&gt;There could be a further problem when the AppPoolIdentity is a domain account:&lt;br&gt;
+&lt;a href=&#34;http://www.yusufozturk.info/iis7/asp-net-write-access-error-on-iis7-5.html&#34;&gt;http://www.yusufozturk.info/iis7/asp-net-write-access-error-on-iis7-5.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Enabling WCF web services in IIS7</title>
+      <link>http://localhost:1313/posts/enabling-wcf-web-services-in-iis7/</link>
+      <pubDate>Fri, 20 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/enabling-wcf-web-services-in-iis7/</guid>
+      <description>&lt;p&gt;would never have figured this one out:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/3188618/enabling-net-tcp&#34; title=&#34;http://stackoverflow.com/questions/3188618/enabling-net-tcp&#34;&gt;http://stackoverflow.com/questions/3188618/enabling-net-tcp&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Referencing assemblies in the GAC in Visual Studio</title>
+      <link>http://localhost:1313/posts/referencing-assemblies-in-the-gac-in-visual-studio/</link>
+      <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/referencing-assemblies-in-the-gac-in-visual-studio/</guid>
+      <description>&lt;p&gt;Use this Visual Studio add in&lt;br&gt;
+&lt;a href=&#34;http://visualstudiogallery.msdn.microsoft.com/36a6eb45-a7b1-47c3-9e85-09f0aef6e879/&#34;&gt;http://visualstudiogallery.msdn.microsoft.com/36a6eb45-a7b1-47c3-9e85-09f0aef6e879/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Beware of entity tracking</title>
+      <link>http://localhost:1313/posts/beware-of-entity-tracking/</link>
+      <pubDate>Tue, 16 Aug 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/beware-of-entity-tracking/</guid>
+      <description>&lt;p&gt;Entity tracking is clever and manages to keep a cache of recently used entities (and lists of entities) and, if it doesn’t see a change to an entity, it will return the cached version without going to the database – that’s what caching is after all. The problem is that ALL changes to the database MUST be made by the same project using .netTiers methods. If you’re developing an application and change data directly in the database then .netTiers won’t spot that. Pretty obvious really but do remember whether you have&lt;br&gt;
+&lt;code&gt;enableEntityTracking=&amp;quot;true&amp;quot;&lt;/code&gt;
+or&lt;br&gt;
+&lt;code&gt;enableEntityTracking=&amp;quot;false&amp;quot;&lt;/code&gt;&lt;br&gt;
+in the SqlNetTiersProvider bit of your web.config&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>useStoredProcedure=true but still runs SELECT statements</title>
+      <link>http://localhost:1313/posts/usestoredproceduretrue-but-still-runs-select-statements/</link>
+      <pubDate>Fri, 03 Jun 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/usestoredproceduretrue-but-still-runs-select-statements/</guid>
+      <description>&lt;p&gt;.netTiers can be configured to only use stored procedures, which is a great way to reduce the possibility of the database being attacked as the user account can be given access to only execute stored procedures and not have any direct access to the tables. To do this, just set useStoredProcedure=true in the netTiers &lt;code&gt;&amp;lt;providers&amp;gt;&lt;/code&gt; section of the web.config&lt;/p&gt;
+&lt;p&gt;If you do this, some pages (methods) will still need SELECT access to tables. By default, netTiers creates entitygridviews that use paging and so use the &lt;code&gt;get_paged&lt;/code&gt; method, which calls the &lt;code&gt;myTable_GetPaged&lt;/code&gt; stored procedure. This stored procedure builds a couple of SQL strings (SELECT statements) that are executed, which means that the user account needs to have access to run SELECT statements. To give SELECT access to all tables in the database, you can add the user account to the &lt;code&gt;db_datareader&lt;/code&gt; role.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting the ID of a newly inserted record</title>
+      <link>http://localhost:1313/posts/getting-the-id-of-a-newly-inserted-record/</link>
+      <pubDate>Mon, 18 Apr 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/getting-the-id-of-a-newly-inserted-record/</guid>
+      <description>&lt;p&gt;if you’re using a &lt;code&gt;&amp;lt;data:MultiFormView ID=&amp;quot;FormView1&amp;quot;&amp;gt;&lt;/code&gt; bound to a &lt;code&gt;&amp;lt;data:MyTableDataSource&amp;gt;&lt;/code&gt; then it isn’t obvious how to get the ID of a record that you’ve just inserted e.g. you might want to redirect back to the same form but with the new ID in the querystring to further edit the form or related information.&lt;/p&gt;
+&lt;p&gt;This is all you need to do:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; FormView1_ItemInserted(Object sender, EventArgs e)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Myid = BMyTableDataSource.EntityId.Myid;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Using the description property of SQL Server fields as the friendly name</title>
+      <link>http://localhost:1313/posts/using-the-description-property-of-sql-server-fields-as-the-friendly-name/</link>
+      <pubDate>Thu, 17 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-the-description-property-of-sql-server-fields-as-the-friendly-name/</guid>
+      <description>&lt;p&gt;SQL Server allows each field in the database to have a description, so this description seems like the most useful place to put friendly names for fields that will appear on a netTiers generated admin page.&lt;/p&gt;
+&lt;p&gt;When netTiers first runs, a config file is generated as specified in 01 MappingFile&lt;br&gt;
+This XML file lists all of the tables and for each table it lists all of the fields e.g.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;Column Id=&amp;#34;title&amp;#34; CSType=&amp;#34;System.String&amp;#34; PropertyName=&amp;#34;Title&amp;#34; FieldName=&amp;#34;_title&amp;#34; FriendlyName=&amp;#34;Title&amp;#34; IncludeInOutput=&amp;#34;true&amp;#34; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;netTiers will automatically convert the database field name of &amp;ldquo;title&amp;rdquo; to a FriendlyName of &amp;ldquo;Title&amp;rdquo;&lt;br&gt;
+It’s quite clever too and will convert a field name of &lt;code&gt;&amp;quot;title_or_salutation&amp;quot;&lt;/code&gt; to a FriendlyName of &lt;code&gt;&amp;quot;Title Or Salutation&amp;quot;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using stored procedures in entity data sources</title>
+      <link>http://localhost:1313/posts/using-stored-procedures-in-entity-data-sources/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-stored-procedures-in-entity-data-sources/</guid>
+      <description>&lt;p&gt;The normal &lt;code&gt;&amp;lt;asp:SqlDataSource/&amp;gt;&lt;/code&gt; can use stored procedures as the select method and even for insert/update/delete commands.&lt;/p&gt;
+&lt;p&gt;netTiers will create a strongly typed data source for each table. The inserts, updates and deletes are handled automatically but there are options for which records to select. &lt;code&gt;Get_Paged&lt;/code&gt; is the default but you can also get by any foreign key. Sometimes this isn’t enough and you want a custom filter for your entities. To do this, write a stored procedure that returns all of the columns in the base table and no other columns. The SP can have joins to other tables, so you can use those for filtering. The SP can have whatever parameters you like. Because the SP returns all of the columns of the base table, netTiers recognises that it can be used to get a list of entities and so allows it as a SelectMethod e.g.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>transactions and creating related records on insert</title>
+      <link>http://localhost:1313/posts/transactions-and-creating-related-records-on-insert/</link>
+      <pubDate>Wed, 09 Feb 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/transactions-and-creating-related-records-on-insert/</guid>
+      <description>&lt;p&gt;After creating a record, you might want to automatically create a related child record, which uses the ID of the record you have just created. In your datasource &lt;code&gt;&amp;lt;data:XyzDataSource&amp;gt;&lt;/code&gt; you can put in &lt;code&gt;OnInserted=&amp;quot;Xyz_Inserted&amp;quot;&lt;/code&gt;:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;data:XyzDataSource ID=&amp;#34;XyzDataSource&amp;#34; runat=&amp;#34;server&amp;#34; SelectMethod=&amp;#34;GetById&amp;#34; OnInserted=&amp;#34;Xyz_Inserted&amp;#34;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Xyz&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_Inserted(Object sender, ObjectDataSourceStatusEventArgs e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (e.Exception == &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (FormView1.CurrentMode == FormViewMode.Insert)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      Xyz myXyz  = (Xyz)e.ReturnValue;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ID = myXyz .Id;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;// now create the child entity, set the parent id and insert it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The problem with this is that netTiers by default uses transactions and &lt;code&gt;Xyz_Inserted&lt;/code&gt; is called in the middle of the transaction. So, whilst an ID has been returned for the new record, it hasn’t been committed to the database, so you can’t create the child record yet. The way around this is for the datasource to not use transactions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Database connections timing out in IIS 7.5 – caused by EntityTransactionModule</title>
+      <link>http://localhost:1313/posts/database-connections-timing-out-in-iis-7.5-caused-by-entitytransactionmodule/</link>
+      <pubDate>Tue, 08 Feb 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/database-connections-timing-out-in-iis-7.5-caused-by-entitytransactionmodule/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After using a netTiers powered website for a while, the database connections would start to time out and you’d get a Stack Trace like:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)  
+at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)  
+at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;NetTiers was using an EntityTransactionModule which was incorrectly configured. It was opening database connections and not closing them (I think) and so SQL Server eventually stops allowing connections. IIS 7.5 needs the following code in the web.config to correctly configure the module.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NetTiers EntityGridView Deepload display readonly lookup</title>
+      <link>http://localhost:1313/posts/nettiers-entitygridview-deepload-display-readonly-lookup/</link>
+      <pubDate>Tue, 08 Feb 2011 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/nettiers-entitygridview-deepload-display-readonly-lookup/</guid>
+      <description>&lt;p&gt;If you need your netTiers gridview (EntityGridView) to have a column that just displays a read only value from a lookup table then the data source will need to deepload but &lt;code&gt;&amp;lt;asp:BoundField&amp;gt;&lt;/code&gt; won’t be able to access the lookup value. NetTiers’ own controls are only dropdowns, hyperlinks and radiobuttons, so to display the lookup value (rather than the ID), you need to add a template field&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;asp:TemplateField&amp;gt;  
+  &amp;lt;ItemTemplate&amp;gt;  
+    &amp;lt;%# Eval(&amp;#34;ApplicIdSource.Applic&amp;#34;)%&amp;gt;  
+  &amp;lt;/ItemTemplate&amp;gt;  
+&amp;lt;/asp:TemplateField&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;as described here:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ID fields</title>
+      <link>http://localhost:1313/posts/id-fields/</link>
+      <pubDate>Thu, 25 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/id-fields/</guid>
+      <description>&lt;p&gt;Don’t name a field ID, id or Id&lt;/p&gt;
+&lt;p&gt;If you ask NetTiers to generate an admin website, then it will show warnings when compiled but these will result in errors when you try to run the site.&lt;/p&gt;
+&lt;p&gt;Even if you don’t want an admin website to start with, you may want one later, so just don’t name any fields ID&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IF statements in custom stored procedures</title>
+      <link>http://localhost:1313/posts/if-statements-in-custom-stored-procedures/</link>
+      <pubDate>Wed, 25 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/if-statements-in-custom-stored-procedures/</guid>
+      <description>&lt;p&gt;You may want your custom stored procedures to contain conditional statements such as &lt;code&gt;IF&lt;/code&gt;. These can cause problems when NetTiers inspects the procedure to determine its outputs – it may normally return a table but an &lt;code&gt;IF&lt;/code&gt; statement traps for an exception and conditionally returns before the select statement. You can force NetTiers to follow one route through the code e.g. the statement below will never return for NetTiers&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;IF user_name() &amp;lt;&amp;gt; &amp;#39;NetTiersUserAccount&amp;#39; AND ThingToTest = ValueThatMakesItReturn RETURN
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Just make sure that the user account in the connection string used by NetTiers is not used by anything other than NetTiers i.e. not in you web.config&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>System.Reflection.AmbiguousMatchException: Ambiguous match found.</title>
+      <link>http://localhost:1313/posts/system.reflection.ambiguousmatchexception-ambiguous-match-found./</link>
+      <pubDate>Tue, 20 Oct 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/system.reflection.ambiguousmatchexception-ambiguous-match-found./</guid>
+      <description>&lt;p&gt;If you get this error with NetTiers, it’s probably because you have a field named with a reserved word such as:&lt;/p&gt;
+&lt;p&gt;Tag&lt;br&gt;
+ID&lt;br&gt;
+SortOrder&lt;/p&gt;
+&lt;p&gt;Rename the field&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>completely close and re-open NetTiers after database changes</title>
+      <link>http://localhost:1313/posts/completely-close-and-re-open-nettiers-after-database-changes/</link>
+      <pubDate>Thu, 24 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/completely-close-and-re-open-nettiers-after-database-changes/</guid>
+      <description>&lt;p&gt;If you have NetTiers open and have generated code, then make changes to the database, you need to completely close and re-open CodeSmith / NetTiers for it to fully recognise the changes. Something or other gets cached and NetTiers doesn’t spot the database changes – this was a pain to track down.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SortOrder</title>
+      <link>http://localhost:1313/posts/sortorder/</link>
+      <pubDate>Wed, 23 Sep 2009 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sortorder/</guid>
+      <description>&lt;p&gt;Don’t call a field in the database “SortOrder”&lt;br&gt;
+It breaks nettiers in subtle ways that are hard to spot&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>empty fields</title>
+      <link>http://localhost:1313/posts/empty-fields/</link>
+      <pubDate>Thu, 03 Apr 2008 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/empty-fields/</guid>
+      <description>&lt;p&gt;I’d set up the MedicineExaminers system to not allow nulls on any fields – they were supposed to contain empty strings if there was no data e.g. no email address.&lt;/p&gt;
+&lt;p&gt;The NetTiers generated site didn’t like this as it made the fields required. I’ve changed the fields to allow nulls and so now, if I have an empty text box, NetTiers sets the value to null in the database.&lt;/p&gt;
+&lt;p&gt;Lookup lists (e.g. speciality) will have values such as “not known”, so foreign keys will never need to be null.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

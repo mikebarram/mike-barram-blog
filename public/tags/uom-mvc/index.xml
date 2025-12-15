@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Uom-Mvc on Mike Barram</title>
+    <link>http://localhost:1313/tags/uom-mvc/</link>
+    <description>Recent content in Uom-Mvc on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 10 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/uom-mvc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Avoiding monolithic applications</title>
+      <link>http://localhost:1313/posts/avoiding-monolithic-applications/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/avoiding-monolithic-applications/</guid>
+      <description>&lt;p&gt;I spend a lot (perhaps too much?) time worrying about how applications can become too big and extend beyond their original scope. When asked to create a small application that is either stand-alone or only slightly linked to other systems, it’s too tempting to just add it as an exatra section of an existing application, rather copy/re-create the infrastructure needed for it to be in its own application.&lt;/p&gt;
+&lt;p&gt;Visual Studio now provides a lot of the infrastructure, so with a few button clicks you can have an ASP.Net MVC application that’s all plumbed together but often the first thing you do is get rid of the that auto-generated stuff and it doesn’t include all of your own standard customisations. There are a few ways to implement those standard customisations:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JWT and CORS for cross-site API authentication</title>
+      <link>http://localhost:1313/posts/jwt-and-cors-for-cross-site-api-authentication/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/jwt-and-cors-for-cross-site-api-authentication/</guid>
+      <description>&lt;p&gt;In my previous post on &lt;a href=&#34;https://mikebarram.wordpress.com/2015/04/10/avoiding-monolithic-applications/&#34;&gt;avoiding monolithic applications&lt;/a&gt;, I mentioned that JSON Web Tokens and CORS could be used to access protected web apis on other sites. Here’s the why and how.&lt;/p&gt;
+&lt;h2 id=&#34;the-requirement-foraccessing-protected-web-apis-on-other-sites&#34;&gt;The requirement for accessing protected web apis on other sites&lt;/h2&gt;
+&lt;p&gt;Ideally (my ideal), each application that is developed would be relatively compact and include only the functionality that is unique to that application. Functionality from other applications would be provided by APIs in those applications and generic functionality (e.g. a staff lookup) would be provided by an application (or multiple) that all other applications can access (almost like  a CDN for functionality).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Updated error handling</title>
+      <link>http://localhost:1313/posts/updated-error-handling/</link>
+      <pubDate>Tue, 10 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/updated-error-handling/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/blog/2014/managing-errors-in-mvc/&#34;&gt;Managing Errors in MVC&lt;/a&gt; I got close to having record level error handling working as I wanted but I had to create a view for each error when usually the error is a single line of text that could be stored in a config file.&lt;/p&gt;
+&lt;p&gt;Based on my original code and http://weblogs.asp.net/gunnarpeipman/asp-net-mvc-3-creating-httpstatuscoderesult-with-view-based-body&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Helpers\ExceptionHelper.cs&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Linq.Expressions;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Net;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web.Mvc;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Web.Routing;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Collections;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Collections.Generic;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; MyProject
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ExceptionHelper&lt;/span&gt; : ViewResult
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; ExceptionName &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; HttpStatusCode? &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool?&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ExceptionHelper(ExceptionName exceptionName, HttpStatusCode? statusCode = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;bool?&lt;/span&gt; logException = &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName = exceptionName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode = statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException = logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; ExecuteResult(ControllerContext context)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            HttpStatusCode returnStatusCode = HttpStatusCode.BadRequest;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; returnLogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ExceptionDescription = &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;.Empty;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; sViewName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exceptions/\_GenericException&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; httpContext = context.HttpContext;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; response = httpContext.Response;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// get the defaults for this exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ExceptionActions theseExceptionActions;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (ExceptionDefaults.TryGetValue(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName, &lt;span style=&#34;color:#66d9ef&#34;&gt;out&lt;/span&gt; theseExceptionActions))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (theseExceptionActions.UseCustomView)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    sViewName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Exceptions/&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName.ToString();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ExceptionDescription = theseExceptionActions.ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; == &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnStatusCode = theseExceptionActions.StatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnStatusCode = (HttpStatusCode)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_statusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; == &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnLogException = theseExceptionActions.LogException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    returnLogException = (&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt;)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_logException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            response.StatusCode = (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;)returnStatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            response.StatusDescription = ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ViewBag.ExceptionDescription = ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ViewName = sViewName;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (returnLogException)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#75715e&#34;&gt;// log the exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Elmah.ErrorSignal.FromCurrentContext().Raise(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Exception(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;_exceptionName.ToString()));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;base&lt;/span&gt;.ExecuteResult(context);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;enum&lt;/span&gt; ExceptionName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            DataNotValid,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            NoPermissionToManageThisPerson,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            NoPermissionToManageThisProject,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            RecordNotFound,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            RecordNotSpecified
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// &amp;lt;summary&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// Most exceptions will have UseCustomView=false, so the ExceptionDescription will be used for the error message that is displayed in the \_GenericException view&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// If a custom view is required, it will have the name of the exception&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;/// &amp;lt;/summary&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ExceptionActions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; UseCustomView;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; HttpStatusCode StatusCode;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; LogException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ExceptionDescription;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; Dictionary&amp;lt;ExceptionName, ExceptionActions&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&amp;gt; ExceptionDefaults = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Dictionary&amp;lt;ExceptionName, ExceptionActions&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&amp;gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.DataNotValid, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.BadRequest, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Data provided was not valid&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.NoPermissionToManageThisPerson, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.Forbidden, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You don&amp;#39;t have permission to manage this person&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.NoPermissionToManageThisProject, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.Forbidden, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You don&amp;#39;t have permission to manage this project&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.RecordNotFound, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.NotFound, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Record was not found&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {ExceptionName.RecordNotSpecified, &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ExceptionActions {UseCustomView = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, StatusCode = HttpStatusCode.BadRequest, LogException = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, ExceptionDescription = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Record not specified - one or more identifiers were missing&amp;#34;&lt;/span&gt;}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Views\Shared\Exceptions\_GenericException.cshtml&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting a WebApi2 controller to return HttpStatusCode.Forbidden</title>
+      <link>http://localhost:1313/posts/getting-a-webapi2-controller-to-return-httpstatuscode.forbidden/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/getting-a-webapi2-controller-to-return-httpstatuscode.forbidden/</guid>
+      <description>&lt;p&gt;If your WebApi controller is checking that the user has permission to view a particular record and it turns out that they don’t then you will want to return a status of Forbidden, rather than Unauthorized as discussed here:
+&lt;a href=&#34;http://stackoverflow.com/questions/238437/why-does-authorizeattribute-redirect-to-the-login-page-for-authentication-and-au/5844884#5844884&#34;&gt;http://stackoverflow.com/questions/238437/why-does-authorizeattribute-redirect-to-the-login-page-for-authentication-and-au/5844884#5844884&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(You might also want to override the AuthorizeAttribute class as described there)&lt;/p&gt;
+&lt;p&gt;WebApi2 controllers now return IHttpActionResult rather than HttpResponseMessage (see http://stackoverflow.com/questions/21758615/why-should-i-use-ihttpactionresult-instead-of-httpresponsemessage). It’s easy to return a result from the System.Web.Http.Results Namespace e.g. return Unauthorized();&lt;br&gt;
+But the namespace doesn’t contain Forbidden, so instead use:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Managing errors in MVC</title>
+      <link>http://localhost:1313/posts/managing-errors-in-mvc/</link>
+      <pubDate>Wed, 14 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/managing-errors-in-mvc/</guid>
+      <description>&lt;h2 id=&#34;error-logging&#34;&gt;Error logging&lt;/h2&gt;
+&lt;p&gt;Elmah seems to be the most popular tool for error logging but the Elmah website doesn’t have much up to date information on how to get started. To get Elmah installed, secured and logging to somewhere more permanent than keeping the log in-memory, follow this guide: http://www.erikojebo.se/Code/Details/607&lt;/p&gt;
+&lt;h2 id=&#34;error-handling&#34;&gt;Error handling&lt;/h2&gt;
+&lt;p&gt;Elmah just logs error, it doesn’t help the user. So you also need to handle the errors, which this article covers nicely:&lt;br&gt;
+&lt;a href=&#34;https://www.simple-talk.com/dotnet/asp.net/handling-errors-effectively-in-asp.net-mvc/&#34;&gt;https://www.simple-talk.com/dotnet/asp.net/handling-errors-effectively-in-asp.net-mvc/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ASP.Net MVC and URLs ending in a decimal or float</title>
+      <link>http://localhost:1313/posts/asp.net-mvc-and-urls-ending-in-a-decimal-or-float/</link>
+      <pubDate>Fri, 14 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/asp.net-mvc-and-urls-ending-in-a-decimal-or-float/</guid>
+      <description>&lt;p&gt;In your MVC site, you might want this URL to purchase 2.5 kilos of cheese for you&lt;br&gt;
+&lt;a href=&#34;https://www.mysite.com/cheese/purchase/2.5&#34;&gt;https://www.mysite.com/cheese/purchase/2.5&lt;/a&gt;&lt;br&gt;
+Unfortunately it won’t be recognised as a route to the purchase method within the cheese controller. The good news is that this will work:&lt;br&gt;
+&lt;a href=&#34;https://www.mysite.com/cheese/purchase/2.5/&#34;&gt;https://www.mysite.com/cheese/purchase/2.5/&lt;/a&gt; Note the extra slash at the end&lt;/p&gt;
+&lt;p&gt;This is an explanation why:&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/21387974/why-is-my-web-api-method-with-double-args-not-getting-called&#34;&gt;http://stackoverflow.com/questions/21387974/why-is-my-web-api-method-with-double-args-not-getting-called&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It’s fairly unusual to have a valid reason for a URL like this. If you want to pass a parameter that’s a float, it’s more likely that you would want to post the data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>EntityFramework Reverse POCO Generator and Views</title>
+      <link>http://localhost:1313/posts/entityframework-reverse-poco-generator-and-views/</link>
+      <pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/entityframework-reverse-poco-generator-and-views/</guid>
+      <description>&lt;p&gt;EntityFramework’s own tool to generate a model from a database is slow and buggy. It’s particularly a problem if you update your database (change table names, field names etc.).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://visualstudiogallery.msdn.microsoft.com/ee4fcff9-0c4c-4179-afd9-7a2fb90f5838&#34;&gt;EntityFramework Reverse POCO Generator&lt;/a&gt; is a great, lightweight replacement – it’s fast, configurable and just works. Also, the entities created can be the same as those created by the built in tool, so it is possible to switch to it part way through developing a project.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Casting one list to another with Omu.ValueInjecter</title>
+      <link>http://localhost:1313/posts/casting-one-list-to-another-with-omu.valueinjecter/</link>
+      <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/casting-one-list-to-another-with-omu.valueinjecter/</guid>
+      <description>&lt;p&gt;Omu.ValueInjecter is great for quickly casting one entity to another, especially when the property names match up, as there’s no configuration to do.&lt;/p&gt;
+&lt;p&gt;This is really handy if you have a view model that’s just a cut down version of your model and you want to get the data from the model into the view model.&lt;/p&gt;
+&lt;p&gt;If you’ve got a list of model entities that you want to cast to a list of view model entitites, you can do so without looping through them:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Steps in creating a new MVC application</title>
+      <link>http://localhost:1313/posts/steps-in-creating-a-new-mvc-application/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/steps-in-creating-a-new-mvc-application/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create the database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create the project/solution in Visual Studio&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;don’t give the project the same name (in the same case) as one of the tables or the compiler will become confused between types and namespaces&lt;/li&gt;
+&lt;li&gt;choose MVC and optionally Web API and unit tests&lt;/li&gt;
+&lt;li&gt;leave authentication as Individual User Accounts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create an application in IIS that points to the project&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change the Web properties for the project to use Local IIS&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Changing the templates used to generate MVC views</title>
+      <link>http://localhost:1313/posts/changing-the-templates-used-to-generate-mvc-views/</link>
+      <pubDate>Fri, 21 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/changing-the-templates-used-to-generate-mvc-views/</guid>
+      <description>&lt;p&gt;If you use Visual Studio to generate MVC views, it will use T4 templates. This is how to edit those templates.&lt;/p&gt;
+&lt;p&gt;Go to:&lt;/p&gt;
+&lt;p&gt;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\Extensions\Microsoft\Web\Mvc\Scaffolding\Templates\MvcView&lt;/p&gt;
+&lt;p&gt;Make a backup copy of the folder (don’t put the backup inside the folder or VS will complain that it has multiple templates to choose from)&lt;/p&gt;
+&lt;p&gt;Then,  open all of the files (or at least all of the *.cs.t4) files) in a text editor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Typical data annotations to use in an MVC data model</title>
+      <link>http://localhost:1313/posts/typical-data-annotations-to-use-in-an-mvc-data-model/</link>
+      <pubDate>Thu, 20 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/typical-data-annotations-to-use-in-an-mvc-data-model/</guid>
+      <description>&lt;p&gt;In ASP.Net MVC, the data model can use data annotations to describe how a property should be displayed or validated.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[DisplayName(&amp;quot;Label used for field goes here&amp;quot;)]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If a string field in the database (e.g. varchar()) doesn’t allow nulls you should either have&lt;br&gt;
+&lt;code&gt;[Required(ErrorMessage = &amp;quot;Required&amp;quot;)]&lt;/code&gt; to provide a message when a field hasn’t been entered&lt;br&gt;
+or&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[DisplayFormat(ConvertEmptyStringToNull = false)]&lt;/code&gt; if empty strings are allowed (though you might want to allow nulls if that’s the case)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding WYSIYYG editors to text fields in MVC</title>
+      <link>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</link>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</guid>
+      <description>&lt;p&gt;In a &lt;a href=&#34;https://mike.barram.dev/blog/2014/multiline-text-editor-in-mvc&#34;&gt;previous post&lt;/a&gt; I showed how you could set attributes on properties in an MVC model so that a text field would be edited with a multi-line HTML text box, instead of a single line input field.&lt;/p&gt;
+&lt;p&gt;What if the you text you’re editing is HTML and you want to use an HTML editor? In the edit razor view, you could set some HTML attributes (e.g. CSS class) on the @Html.EditorFor() but you would have to do that on every view where you edit the field, and on every field that you want to use an HTML editor for. So this shows how to add an attribute to a property so that, wherever the property is edited, the HTML editor will be used.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Requiring authentication for a whole ASP.Net MVC site</title>
+      <link>http://localhost:1313/posts/requiring-authentication-for-a-whole-asp.net-mvc-site/</link>
+      <pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/requiring-authentication-for-a-whole-asp.net-mvc-site/</guid>
+      <description>&lt;p&gt;This is easy from ASP.NET MVC 4 onwards:&lt;br&gt;
+&lt;a href=&#34;http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx&#34;&gt;http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can register a filter that will require users to be authenticated to access all controllers&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; RegisterGlobalFilters(GlobalFilterCollection filters)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    filters.Add(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; HandleErrorAttribute());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    filters.Add(&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; System.Web.Mvc.AuthorizeAttribute());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;but then they won’t be able to access to the Login controller, so you simply add the [AllowAnonymous] attribute to that controller:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[AllowAnonymous]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ActionResult Login(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; returnUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[HttpPost]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[AllowAnonymous]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[ValidateAntiForgeryToken]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; ActionResult Login(LoginModel model, &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; returnUrl)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Multiline Text Editor in MVC</title>
+      <link>http://localhost:1313/posts/multiline-text-editor-in-mvc/</link>
+      <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/multiline-text-editor-in-mvc/</guid>
+      <description>&lt;p&gt;In ASP.Net MVC, it’s so easy to create an entity data model and generate controllers and views for each entity. You can create lots of pages for editing your data just by clicking buttons…&lt;/p&gt;
+&lt;p&gt;A downside is that the generated code doesn’t know the the difference between a small string and a large one, so you get the same small text input box to edit all strings.&lt;/p&gt;
+&lt;p&gt;In your razor view, that’s created by&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NuGets of gold</title>
+      <link>http://localhost:1313/posts/nugets-of-gold/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/nugets-of-gold/</guid>
+      <description>&lt;p&gt;“NuGet is a Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects that use the .NET Framework.” http://docs.nuget.org/&lt;/p&gt;
+&lt;p&gt;To be as agile as possible, the projects developed by the team tend to be coded as separate .Net projects, rather than within one over-arching framework. This makes it easy, when starting a project, to copy the elements from the most similar existing project and just get on with it, without worrying about breaking existing applications. The downside to this is that bugs that are identified and fixed in one project may also need to be fixed in many other projects. In the same way, design changes (updates to templates) need to be rolled out across many sites. Updates to libraries such as jQuery or .Net need to be rolled out across many sites too but there can be an advantage in that, as testing can be done in smaller chunks before the new version can go live – plus the rule of, if it ain’t broke, don’t fix it, can be applied to the older projects that don’t have any other reason to be updated.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Entity Framework – Model First</title>
+      <link>http://localhost:1313/posts/entity-framework-model-first/</link>
+      <pubDate>Thu, 09 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/entity-framework-model-first/</guid>
+      <description>&lt;p&gt;There are 3 ways to link entity framework to a database:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Database first&lt;/strong&gt;. Point Visual Studio at your database and it will create an entity model for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code first&lt;/strong&gt;. Write your classes in Visual Studio and it can create your database for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model first&lt;/strong&gt;. Use the Entity Data Model Tool in Visual Studio to model your entities. Visual Studio will can them create your database and classes for you.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I’ve just tried &lt;strong&gt;Model First&lt;/strong&gt; and not achieved what I wanted.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

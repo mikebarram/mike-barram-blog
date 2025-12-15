@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Uom-Training-Hour on Mike Barram</title>
+    <link>http://localhost:1313/tags/uom-training-hour/</link>
+    <description>Recent content in Uom-Training-Hour on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 16 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/uom-training-hour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NuGets of gold</title>
+      <link>http://localhost:1313/posts/nugets-of-gold/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/nugets-of-gold/</guid>
+      <description>&lt;p&gt;“NuGet is a Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects that use the .NET Framework.” http://docs.nuget.org/&lt;/p&gt;
+&lt;p&gt;To be as agile as possible, the projects developed by the team tend to be coded as separate .Net projects, rather than within one over-arching framework. This makes it easy, when starting a project, to copy the elements from the most similar existing project and just get on with it, without worrying about breaking existing applications. The downside to this is that bugs that are identified and fixed in one project may also need to be fixed in many other projects. In the same way, design changes (updates to templates) need to be rolled out across many sites. Updates to libraries such as jQuery or .Net need to be rolled out across many sites too but there can be an advantage in that, as testing can be done in smaller chunks before the new version can go live – plus the rule of, if it ain’t broke, don’t fix it, can be applied to the older projects that don’t have any other reason to be updated.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Frameworks for Rich Internet Applications</title>
+      <link>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</link>
+      <pubDate>Mon, 13 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</guid>
+      <description>&lt;p&gt;Reading to do relating to frameworks for Rich Internet Applications…&lt;/p&gt;
+&lt;p&gt;Visual Studio 2013 bundles Knockout.js, which looks fairly straightforward (I hope)&lt;/p&gt;
+&lt;p&gt;Postal could be a better way of handling the events https://github.com/postaljs/postal.js&lt;/p&gt;
+&lt;p&gt;Need to make sure our applications are accessible:  http://stackoverflow.com/questions/7370056/accessibility-and-all-these-javascript-frameworks&lt;/p&gt;
+&lt;p&gt;With Knockout, you can pass the server side model to the client like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-HTML&#34; data-lang=&#34;HTML&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ko&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;applyBindings&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Html&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ToJSON&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Comparison of frameworks&lt;br&gt;
+&lt;a href=&#34;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&#34;&gt;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yet more from the developers at Twitter &lt;a href=&#34;http://twitter.github.io/hogan.js/&#34;&gt;http://twitter.github.io/hogan.js/&lt;/a&gt;. This is  a compiler for &lt;a href=&#34;http://mustache.github.io/&#34;&gt;{{mustache}}&lt;/a&gt;, which is a templating language that can convert JSON to HTML in a similar way to Razor converting entities to HTML in ASP.Net. Useful if you want to say generate whole data grids on the client. If your server is getting JSON from elsewhere and you want to template it into HTML, you can use mustache templates on the server (rather than client) using &lt;a href=&#34;https://github.com/jdiamond/Nustache&#34;&gt;https://github.com/jdiamond/Nustache&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Entity Framework – Model First</title>
+      <link>http://localhost:1313/posts/entity-framework-model-first/</link>
+      <pubDate>Thu, 09 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/entity-framework-model-first/</guid>
+      <description>&lt;p&gt;There are 3 ways to link entity framework to a database:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Database first&lt;/strong&gt;. Point Visual Studio at your database and it will create an entity model for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code first&lt;/strong&gt;. Write your classes in Visual Studio and it can create your database for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model first&lt;/strong&gt;. Use the Entity Data Model Tool in Visual Studio to model your entities. Visual Studio will can them create your database and classes for you.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I’ve just tried &lt;strong&gt;Model First&lt;/strong&gt; and not achieved what I wanted.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

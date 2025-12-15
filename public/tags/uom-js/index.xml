@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Uom-Js on Mike Barram</title>
+    <link>http://localhost:1313/tags/uom-js/</link>
+    <description>Recent content in Uom-Js on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 24 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/uom-js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DataTables – automatic recognition of which table columns contain date/time information</title>
+      <link>http://localhost:1313/posts/datatables-automatic-recognition-of-which-table-columns-contain-date/time-information/</link>
+      <pubDate>Tue, 24 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/datatables-automatic-recognition-of-which-table-columns-contain-date/time-information/</guid>
+      <description>&lt;p&gt;I’ve used the JavaScript &lt;a href=&#34;https://datatables.net/&#34;&gt;DataTables&lt;/a&gt; plug-in for jQuery a lot. It’s great for easily adding sorting to tables and lots more. It works nicely with Bootstrap too. The clunkiest thing I’ve found is trying to sort columns that contain date / time information. In the past, I used the datetables-date-sort.js plugin, which allows you to specify for each column what the data type is e.g.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-html:&#34; data-lang=&#34;html:&#34;&gt;&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;
+  $(document).ready(function () {
+    $(&amp;#34;#myTable&amp;#34;).dataTable({
+      &amp;#34;aLengthMenu&amp;#34;: \[\[10, 25, 50, -1\], \[10, 25, 50, &amp;#34;All&amp;#34;\]\],
+      &amp;#34;iDisplayLength&amp;#34;: -1,
+      &amp;#34;aoColumnDefs&amp;#34;: \[
+        { &amp;#34;bSortable&amp;#34;: false, &amp;#34;aTargets&amp;#34;: \[0\] },
+        { &amp;#34;asSorting&amp;#34;: \[&amp;#34;asc&amp;#34;, &amp;#34;desc&amp;#34;\], &amp;#34;aTargets&amp;#34;: \[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\] },
+        { &amp;#34;sType&amp;#34;: &amp;#34;uk-date-time&amp;#34;, &amp;#34;aTargets&amp;#34;: \[8,10\] }
+      \]
+    });
+  });
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That’s nice and flexible but you have to specify it for each table and, worse still, you have to (remember to) change it each time you add/remove/reorder columns.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What could go wrong with a simple jQuery value selector?</title>
+      <link>http://localhost:1313/posts/what-could-go-wrong-with-a-simple-jquery-value-selector/</link>
+      <pubDate>Fri, 07 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/what-could-go-wrong-with-a-simple-jquery-value-selector/</guid>
+      <description>&lt;p&gt;In this case the value selector is used like this:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-js:&#34; data-lang=&#34;js:&#34;&gt;$(“.pPlacement select option\[value=&amp;#39;” + PlacementId + “‘\]”).attr(‘selected’, true);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When PlacementId changes from a number to text and that text then contains an apostrophe, then it breaks!&lt;/p&gt;
+&lt;p&gt;To explain the code above, thee’s a dropdown list of placements and from somewhere we have the value of the one that we want to have as the selected option. The selector picks the option with the value equal to PlacementId and selects it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding a stylesheet to an iframe</title>
+      <link>http://localhost:1313/posts/adding-a-stylesheet-to-an-iframe/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/adding-a-stylesheet-to-an-iframe/</guid>
+      <description>&lt;p&gt;If your page contains an iframe and you need to dynamically add a stylesheet, you can do it like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$head&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“#&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;myIframe&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;contents&lt;/span&gt;().&lt;span style=&#34;color:#a6e22e&#34;&gt;find&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;);  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;$head&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;append&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;link&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;, { &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;stylesheet&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; window.&lt;span style=&#34;color:#a6e22e&#34;&gt;location&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;protocol&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//” + window.location.host + “/mystyles/mystylesheet.css”, type: “text/css” }));
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Even if the domain for the stylesheet is the same as the parent page and the iframe, you still need to include the host address of the stylesheet (the protocol and host bit) or IE will ignore it.&lt;/p&gt;
+&lt;p&gt;from&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/6960406/add-css-to-iframe&#34;&gt;http://stackoverflow.com/questions/6960406/add-css-to-iframe&lt;/a&gt;&lt;br&gt;
+and
+&lt;a href=&#34;http://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/&#34;&gt;http://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding WYSIYYG editors to text fields in MVC</title>
+      <link>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</link>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/adding-wysiyyg-editors-to-text-fields-in-mvc/</guid>
+      <description>&lt;p&gt;In a &lt;a href=&#34;https://mike.barram.dev/blog/2014/multiline-text-editor-in-mvc&#34;&gt;previous post&lt;/a&gt; I showed how you could set attributes on properties in an MVC model so that a text field would be edited with a multi-line HTML text box, instead of a single line input field.&lt;/p&gt;
+&lt;p&gt;What if the you text you’re editing is HTML and you want to use an HTML editor? In the edit razor view, you could set some HTML attributes (e.g. CSS class) on the @Html.EditorFor() but you would have to do that on every view where you edit the field, and on every field that you want to use an HTML editor for. So this shows how to add an attribute to a property so that, wherever the property is edited, the HTML editor will be used.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Frameworks for Rich Internet Applications</title>
+      <link>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</link>
+      <pubDate>Mon, 13 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/frameworks-for-rich-internet-applications/</guid>
+      <description>&lt;p&gt;Reading to do relating to frameworks for Rich Internet Applications…&lt;/p&gt;
+&lt;p&gt;Visual Studio 2013 bundles Knockout.js, which looks fairly straightforward (I hope)&lt;/p&gt;
+&lt;p&gt;Postal could be a better way of handling the events https://github.com/postaljs/postal.js&lt;/p&gt;
+&lt;p&gt;Need to make sure our applications are accessible:  http://stackoverflow.com/questions/7370056/accessibility-and-all-these-javascript-frameworks&lt;/p&gt;
+&lt;p&gt;With Knockout, you can pass the server side model to the client like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-HTML&#34; data-lang=&#34;HTML&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ko&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;applyBindings&lt;/span&gt;(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Html&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ToJSON&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Comparison of frameworks&lt;br&gt;
+&lt;a href=&#34;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&#34;&gt;http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yet more from the developers at Twitter &lt;a href=&#34;http://twitter.github.io/hogan.js/&#34;&gt;http://twitter.github.io/hogan.js/&lt;/a&gt;. This is  a compiler for &lt;a href=&#34;http://mustache.github.io/&#34;&gt;{{mustache}}&lt;/a&gt;, which is a templating language that can convert JSON to HTML in a similar way to Razor converting entities to HTML in ASP.Net. Useful if you want to say generate whole data grids on the client. If your server is getting JSON from elsewhere and you want to template it into HTML, you can use mustache templates on the server (rather than client) using &lt;a href=&#34;https://github.com/jdiamond/Nustache&#34;&gt;https://github.com/jdiamond/Nustache&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

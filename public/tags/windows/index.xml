@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Mike Barram</title>
+    <link>http://localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 08 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transcoding video files and preserving &#34;Media created&#34; meta data</title>
+      <link>http://localhost:1313/posts/transcoding-video-files-and-preserving-media-created-meta-data/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/transcoding-video-files-and-preserving-media-created-meta-data/</guid>
+      <description>&lt;p&gt;VLC is a handy tool for transcoding video files - in my case, mostly from .MOV to .mp4&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;From the Media menu, select &amp;ldquo;Convert/Save…&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Add some files&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Convert/Save&amp;rdquo; button&lt;/li&gt;
+&lt;li&gt;Choose a conversion profile or click the spanner icon to create your own, combining your preferences in video and audio codecs&lt;/li&gt;
+&lt;li&gt;Choose a destination file (unless multiple files are being converted)&lt;/li&gt;
+&lt;li&gt;Click &amp;ldquo;Start&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Wait a while and hopefully all of your videos will have been transcoded&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then you find that you&amp;rsquo;ve lost the &amp;ldquo;Media created&amp;rdquo; meta data for transcoded files has been set to the date/time of the transcoding, not the original date that the video was recorded, and that&amp;rsquo;s the one that you want to sort media by.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

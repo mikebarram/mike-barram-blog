@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>This Site on Mike Barram</title>
+    <link>http://localhost:1313/tags/this-site/</link>
+    <description>Recent content in This Site on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/this-site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating content to this site</title>
+      <link>http://localhost:1313/posts/migrating-content-to-this-site/</link>
+      <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/migrating-content-to-this-site/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d previously written blog posts in WordPress but this site uses Markdown instead. The migration process was simply a case of exporting the old posts from WordPress (there&amp;rsquo;s a button in WordPress to do this) and Google &amp;ldquo;WordPress XML export to markdown&amp;rdquo;, which resulted in me using this:
+&lt;a href=&#34;https://github.com/lonekorean/wordpress-export-to-markdown&#34;&gt;https://github.com/lonekorean/wordpress-export-to-markdown&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There were various warning about deprecated dependencies but, running the script with npx, they weren&amp;rsquo;t installed.
+The blog posts were converted to markdown in a few seconds and then there was the process of tidying it up, especially embedded images/code and the &lt;a href=&#34;https://github.com/timlrx/tailwind-nextjs-starter-blog#frontmatter&#34;&gt;FrontMatter&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

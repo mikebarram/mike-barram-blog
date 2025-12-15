@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on Mike Barram</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI mouse in a maze</title>
+      <link>http://localhost:1313/posts/ai-mouse-in-a-maze/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ai-mouse-in-a-maze/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;not-ai-mouse-in-a-maze&#34;&gt;Not AI mouse in a maze&lt;/a&gt; project was very successful at getting the virtual mouse to navigate a randomly generated maze using a fairly simple set of rules. It could solve about 99% of them. However, there were some maze designs that it got stuck on and others where it was very slow to find the correct path.&lt;/p&gt;
+&lt;p&gt;So, finally it was time to see how well my mouse could do at solving the maze using AI (the &lt;a href=&#34;https://neat-python.readthedocs.io/en/latest/&#34;&gt;NEAT algorithm&lt;/a&gt;). A brief description of the code, how it works, and a video of the mouse is on &lt;a href=&#34;https://github.com/mikebarram/AI-Mouse-In-A-Maze/&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Not AI mouse in a maze</title>
+      <link>http://localhost:1313/posts/not-ai-mouse-in-a-maze/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/not-ai-mouse-in-a-maze/</guid>
+      <description>&lt;p&gt;Building on the &lt;a href=&#34;not-ai-car&#34;&gt;Not AI Car&lt;/a&gt; project, I started out trying to get the car to drive across a maze. I changed the car to a mouse, as the lines detecting the edge looked like whiskers.&lt;/p&gt;
+&lt;p&gt;As I&amp;rsquo;d done with the track, the first thing to code was an algorithm to generate a random maze each time. The backtracking algorithm was well suited to this application and there were many implementations to choose from (see the code for links), so I just need to make a few modifications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Not AI car</title>
+      <link>http://localhost:1313/posts/not-ai-car/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/not-ai-car/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;d been looking for a project to work on to learn Python and AI when I came across a video about &lt;a href=&#34;https://www.youtube.com/watch?v=wL7tSgUpy8w&#34;&gt;Neural network racing cars around a track&lt;/a&gt;. Initially, I thought creating something like that would be too hard for a first project in Python, so I started work on it.&lt;/p&gt;
+&lt;p&gt;Many of the comments on that video asked whether a trained car would do just as well on another track, so I decided to create the track dynamically with an algorithm that would produce a different track each time. Then, I added a car and calculated distances to the edge of the track and thought I should just check that it could drive by providing instructions for steering and acceleration. As I&amp;rsquo;d calculated the distances to the edge of the track, I divided those by the respective angles (positive and negative) and added them up to decide which way to steer and by how much. The distance straight ahead was ignored as it wouldn&amp;rsquo;t affect steering and would resulting in dividing by zero. The acceleration instruction was based on the distance straight ahead. As with a physical car, limits were place on the inputs (rate of change of steering and acceleration/deceleration) and the capabilities of the car (maximum steering angle and speed).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

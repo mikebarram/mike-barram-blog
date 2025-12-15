@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Mike Barram</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Mike Barram</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI</title>
+      <link>http://localhost:1313/tags/ai/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>This Site</title>
+      <link>http://localhost:1313/tags/this-site/</link>
+      <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/this-site/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/tags/windows/</link>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom</title>
+      <link>http://localhost:1313/tags/uom/</link>
+      <pubDate>Wed, 27 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom-Js</title>
+      <link>http://localhost:1313/tags/uom-js/</link>
+      <pubDate>Tue, 24 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom-js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom-A11y</title>
+      <link>http://localhost:1313/tags/uom-a11y/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom-a11y/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom-Mvc</title>
+      <link>http://localhost:1313/tags/uom-mvc/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom-mvc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom-Training-Hour</title>
+      <link>http://localhost:1313/tags/uom-training-hour/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom-training-hour/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uom-Nettiers</title>
+      <link>http://localhost:1313/tags/uom-nettiers/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uom-nettiers/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

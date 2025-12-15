@@ -22,7 +22,7 @@ theme = 'PaperMod'
     enabled = true
     title = "Mike Barram"
     subtitle = "Mike Barram's work as a software developer and architect"
-    imageUrl = "/static/mike-barram.jpg"
+    imageUrl = "/mike-barram.jpg"
     imageTitle = "Mike Barram"
     
     # Homepage Buttons (Update these URLs!)
